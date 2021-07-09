@@ -9,7 +9,7 @@ import (
 	"strconv"
 )
 
-//BytesCombine 多个[]byte数组合并成一个[]byte
+// BytesCombine 多个[]byte数组合并成一个[]byte
 func BytesCombine(pBytes ...[]byte) []byte {
 	return bytes.Join(pBytes, []byte(""))
 }
