@@ -182,8 +182,8 @@ func ByteToFloat64(bytes []byte) float64 {
 	return math.Float64frombits(bits)
 }
 
-// 数组平分
-func splitArray(arr []byte, num int32) [][]byte {
+// SplitArray 数组平分
+func SplitArray(arr []byte, num int32) [][]byte {
 	max := int32(len(arr))
 	if max < num {
 		return nil
@@ -206,7 +206,7 @@ func splitArray(arr []byte, num int32) [][]byte {
 // BytesToArray 字节数组转二维int 数组
 func BytesToArray(data []byte) (mArr [][]int){
 	var dataInt []int
-	a2 := splitArray(data, int32(len(data))/2)
+	a2 := SplitArray(data, int32(len(data))/2)
 	for _, v := range a2 {
 		v = []byte{v[1], v[0]}
 		i, _ := BytesToIntU(v)
