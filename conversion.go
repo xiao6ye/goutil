@@ -14,6 +14,14 @@ func BytesCombine(pBytes ...[]byte) []byte {
 	return bytes.Join(pBytes, []byte(""))
 }
 
+// ByteSwap 字节数组前后调换
+func ByteSwap(b []byte) (newB []byte) {
+	middleLen := len(b) / 2
+	newB = BytesCombine(newB, b[middleLen:])
+	newB = BytesCombine(newB, b[:middleLen])
+	return
+}
+
 // IntToBytes 整形转换成字节
 func IntToBytes(n int, b byte) ([]byte, error) {
 	switch b {
@@ -204,7 +212,7 @@ func SplitArray(arr []byte, num int32) [][]byte {
 }
 
 // BytesToArray 字节数组转二维int 数组
-func BytesToArray(data []byte) (mArr [][]int){
+func BytesToArray(data []byte) (mArr [][]int) {
 	var dataInt []int
 	a2 := SplitArray(data, int32(len(data))/2)
 	for _, v := range a2 {
