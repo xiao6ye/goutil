@@ -176,6 +176,13 @@ func BytesToFloat32(b []byte) (f float32, err error) {
 	return
 }
 
+func Float32ToByte(float float32) []byte {
+	bits := math.Float32bits(float)
+	bytes := make([]byte, 4)
+	binary.BigEndian.PutUint32(bytes, bits)
+	return bytes
+}
+
 func Float64ToBytes(float float64) []byte {
 	bits := math.Float64bits(float)
 	bytes := make([]byte, 8)
